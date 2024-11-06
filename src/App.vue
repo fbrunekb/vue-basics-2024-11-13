@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import DefaultHeader from '@/components/DefaultHeader.vue';
+import TodoList from '@/components/TodoList.vue';
 </script>
 
 <template>
@@ -7,5 +8,7 @@ import DefaultHeader from '@/components/DefaultHeader.vue';
     <DefaultHeader headline="Daily Tasks" />
   </header>
 
-  <main>some main content</main>
+  <main>
+    <TodoList />
+  </main>
 </template>
