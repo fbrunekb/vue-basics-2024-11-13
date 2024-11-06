@@ -2,6 +2,10 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 
+defineProps<{
+  headline: string;
+}>();
+
 const time = ref(Date.now());
 
 let intervalId;
@@ -27,7 +31,7 @@ const formattedTime = computed(() => {
 <template>
   <div class="header-container">
     <FontAwesomeIcon icon="tasks" />
-    <h2>Daily Tasks</h2>
+    <h2>{{ headline }}</h2>
     <span>Time: {{ formattedTime }} </span>
   </div>
 </template>

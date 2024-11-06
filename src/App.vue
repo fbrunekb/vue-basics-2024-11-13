@@ -4,7 +4,7 @@ import DefaultHeader from '@/components/DefaultHeader.vue';
 
 <template>
   <header>
-    <DefaultHeader />
+    <DefaultHeader headline="Daily Tasks" />
   </header>
 
   <main>some main content</main>
