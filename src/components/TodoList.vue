@@ -4,6 +4,26 @@ import TodoListItem from '@/components/TodoListItem.vue';
 function onAdd(event: Event) {
   console.log(event.target);
 }
+
+type ItemDetails = {
+  inputId: string;
+  label: string;
+};
+
+const items: ItemDetails[] = [
+  {
+    inputId: 'item1',
+    label: 'first item',
+  },
+  {
+    inputId: 'item2',
+    label: 'second item',
+  },
+  {
+    inputId: 'item3',
+    label: 'third item',
+  },
+];
 </script>
 
 <template>
@@ -14,9 +34,9 @@ function onAdd(event: Event) {
     </div>
     <h3>Items:</h3>
     <div>
-      <TodoListItem input-id="item1" label="first Item" />
-      <TodoListItem input-id="item2" label="second Item" />
-      <TodoListItem input-id="item3" label="third Item" />
+      <TodoListItem :input-id="items[0].inputId" :label="items[0].label" />
+      <TodoListItem :input-id="items[1].inputId" :label="items[1].label" />
+      <TodoListItem :input-id="items[2].inputId" :label="items[2].label" />
     </div>
   </div>
 </template>
