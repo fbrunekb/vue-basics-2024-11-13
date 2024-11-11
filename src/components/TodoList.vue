@@ -67,6 +67,7 @@ const items = ref<ItemDetails[]>([
         v-for="item of items"
         :key="item.inputId"
         :input-id="item.inputId"
+        :is-done="item.isDone"
         :label="item.label"
         @delete="deleteFromList(item)"
         @toggle="toggle(item)"
