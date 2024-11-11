@@ -15,14 +15,8 @@ function onAdd(event: Event) {
     <h3>Items:</h3>
     <div>
       <TodoListItem input-id="item1" label="first Item" />
-      <div class="default-size-item item-container">
-        <input id="item2" type="checkbox" />
-        <label class="item-label" for="item2">second Item</label>
-      </div>
-      <div class="default-size-item item-container">
-        <input id="item3" type="checkbox" />
-        <label class="item-label" for="item3">third Item</label>
-      </div>
+      <TodoListItem input-id="item2" label="second Item" />
+      <TodoListItem input-id="item3" label="third Item" />
     </div>
   </div>
 </template>
