@@ -4,10 +4,11 @@ import { ref } from 'vue';
 
 function onAdd() {
   if (inputText.value) {
+    lastItemIndex.value += 1;
     items.value = [
       ...items.value,
       {
-        inputId: 'item' + (items.value.length + 1),
+        inputId: 'item' + lastItemIndex.value,
         label: inputText.value,
       },
     ];
@@ -21,13 +22,14 @@ function deleteFromList(item: ItemDetails) {
   items.value = items.value.filter((i) => i.inputId != item.inputId);
 }
 
-const inputText = ref('');
+const inputText = ref<string>('');
 
 type ItemDetails = {
   inputId: string;
   label: string;
 };
 
+const lastItemIndex = ref<number>(4);
 const items = ref<ItemDetails[]>([
   {
     inputId: 'item1',
