@@ -14,7 +14,7 @@ function onAdd(event: Event) {
     </div>
     <h3>Items:</h3>
     <div>
-      <TodoListItem />
+      <TodoListItem input-id="item1" label="first Item" />
       <div class="default-size-item item-container">
         <input id="item2" type="checkbox" />
         <label class="item-label" for="item2">second Item</label>

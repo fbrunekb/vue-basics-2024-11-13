@@ -1,9 +1,14 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+defineProps<{
+  inputId: string;
+  label: string;
+}>();
+</script>
 
 <template>
   <div class="default-size-item item-container">
-    <input id="item1" type="checkbox" />
-    <label class="item-label" for="item1">first Item</label>
+    <input :id="inputId" type="checkbox" />
+    <label :for="inputId" class="item-label">{{ label }}</label>
   </div>
 </template>
 
