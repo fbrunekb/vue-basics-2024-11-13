@@ -34,9 +34,7 @@ const items: ItemDetails[] = [
     </div>
     <h3>Items:</h3>
     <div>
-      <TodoListItem :input-id="items[0].inputId" :label="items[0].label" />
-      <TodoListItem :input-id="items[1].inputId" :label="items[1].label" />
-      <TodoListItem :input-id="items[2].inputId" :label="items[2].label" />
+      <TodoListItem v-for="item of items" :key="item.inputId" :input-id="item.inputId" :label="item.label" />
     </div>
   </div>
 </template>
