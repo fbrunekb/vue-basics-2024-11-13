@@ -53,7 +53,7 @@ const items = ref<ItemDetails[]>([
 <template>
   <div class="main-content">
     <div>
-      <input v-model="inputText" class="default-size-item add-input" type="text" />
+      <input v-model="inputText" class="default-size-item add-input" type="text" @keydown.enter="onAdd" />
       <button class="default-size-item add-button" @click.prevent="onAdd">add</button>
     </div>
     <h3>Items:</h3>
