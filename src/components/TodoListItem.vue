@@ -1,10 +1,13 @@
 <script lang="ts" setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 defineProps<{
   inputId: string;
   label: string;
 }>();
+
+const emit = defineEmits(['delete']);
 </script>
 
 <template>
@@ -13,7 +16,7 @@ defineProps<{
       <input :id="inputId" type="checkbox" />
       <label :for="inputId" class="item-label">{{ label }}</label>
     </div>
-    <FontAwesomeIcon class="delete-icon" icon="trash" />
+    <FontAwesomeIcon :icon="faTrash" class="delete-icon" @click.prevent="emit('delete')" />
   </div>
 </template>
 

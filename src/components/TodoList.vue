@@ -17,6 +17,10 @@ function onAdd() {
   }
 }
 
+function deleteFromList(item: ItemDetails) {
+  items.value = items.value.filter((i) => i.inputId != item.inputId);
+}
+
 const inputText = ref('');
 
 type ItemDetails = {
@@ -52,7 +56,13 @@ const items = ref<ItemDetails[]>([
     </div>
     <h3>Items:</h3>
     <div>
-      <TodoListItem v-for="item of items" :key="item.inputId" :input-id="item.inputId" :label="item.label" />
+      <TodoListItem
+        v-for="item of items"
+        :key="item.inputId"
+        :input-id="item.inputId"
+        :label="item.label"
+        @delete="deleteFromList(item)"
+      />
     </div>
   </div>
 </template>
