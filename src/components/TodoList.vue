@@ -22,6 +22,10 @@ function deleteFromList(item: ItemDetails) {
   items.value = items.value.filter((i) => i.inputId != item.inputId);
 }
 
+function toggle(item: ItemDetails) {
+  console.log('toggle');
+}
+
 const inputText = ref<string>('');
 
 type ItemDetails = {
@@ -64,6 +68,7 @@ const items = ref<ItemDetails[]>([
         :input-id="item.inputId"
         :label="item.label"
         @delete="deleteFromList(item)"
+        @toggle="toggle(item)"
       />
     </div>
   </div>

@@ -8,11 +8,11 @@ defineProps<{
   label: string;
 }>();
 
-const emit = defineEmits(['delete']);
+const emit = defineEmits(['delete', 'toggle']);
 </script>
 
 <template>
-  <div class="default-size-item item-container">
+  <div class="default-size-item item-container" @click.prevent="emit('toggle')">
     <div class="labelled-checkbox">
       <FontAwesomeIcon :icon="faSquare" />
       <span class="item-label">{{ label }}</span>
