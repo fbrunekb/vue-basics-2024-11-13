@@ -1,7 +1,8 @@
 import { ref } from 'vue';
 import type { ItemDetails } from '@/types';
+import Cookies from 'js-cookie';
 
-export const items = ref<ItemDetails[]>([
+const defaultItems = [
   {
     inputId: 'item1',
     label: 'first item',
@@ -18,8 +19,12 @@ export const items = ref<ItemDetails[]>([
     inputId: 'item4',
     label: 'fourth item',
   },
-]);
-export const lastItemIndex = ref<number>(items.value.length);
+];
+const itemsCookies = Cookies.get('items');
+const lastItemIndexCookies = Cookies.get('lastItemIndex');
+
+export const items = ref<ItemDetails[]>(itemsCookies ? JSON.parse(itemsCookies) : defaultItems);
+export const lastItemIndex = ref<number>(parseInt(lastItemIndexCookies) ?? items.value.length);
 
 export function appendItem(inputText: string) {
   lastItemIndex.value += 1;
@@ -30,4 +35,9 @@ export function appendItem(inputText: string) {
       label: inputText,
     },
   ];
+}
+
+export function saveItems() {
+  Cookies.set('items', JSON.stringify(items.value));
+  Cookies.set('lastItemIndex', lastItemIndex.value);
 }
