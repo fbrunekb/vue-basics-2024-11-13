@@ -23,7 +23,7 @@ function deleteFromList(item: ItemDetails) {
 }
 
 function toggle(item: ItemDetails) {
-  console.log('toggle');
+  item.isDone = !item.isDone;
 }
 
 const inputText = ref<string>('');
@@ -31,6 +31,7 @@ const inputText = ref<string>('');
 type ItemDetails = {
   inputId: string;
   label: string;
+  isDone?: boolean;
 };
 
 const lastItemIndex = ref<number>(4);
