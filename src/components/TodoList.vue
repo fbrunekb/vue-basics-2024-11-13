@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import TodoListItem from '@/components/TodoListItem.vue';
 import { ref } from 'vue';
+import type { ItemDetails } from '@/types';
 
 function onAdd() {
   if (inputText.value) {
@@ -27,12 +28,6 @@ function toggle(item: ItemDetails) {
 }
 
 const inputText = ref<string>('');
-
-type ItemDetails = {
-  inputId: string;
-  label: string;
-  isDone?: boolean;
-};
 
 const lastItemIndex = ref<number>(4);
 const items = ref<ItemDetails[]>([
@@ -66,9 +61,7 @@ const items = ref<ItemDetails[]>([
       <TodoListItem
         v-for="item of items"
         :key="item.inputId"
-        :input-id="item.inputId"
-        :is-done="item.isDone"
-        :label="item.label"
+        :item="item"
         @delete="deleteFromList(item)"
         @toggle="toggle(item)"
       />
