@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { faTasks } from '@fortawesome/free-solid-svg-icons';
 
 defineProps<{
   headline: string;
@@ -30,7 +31,7 @@ const formattedTime = computed(() => {
 
 <template>
   <div class="header-container">
-    <FontAwesomeIcon icon="tasks" />
+    <FontAwesomeIcon :icon="faTasks" />
     <h2>{{ headline }}</h2>
     <span>Time: {{ formattedTime }} </span>
   </div>
