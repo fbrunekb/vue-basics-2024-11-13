@@ -15,7 +15,7 @@ const emit = defineEmits(['delete', 'toggle']);
   <div class="default-size-item item-container" @click.prevent="emit('toggle')">
     <div class="labelled-checkbox">
       <FontAwesomeIcon :icon="item.isDone ? faSquareCheck : faSquare" />
-      <span class="item-label">{{ item.label }}</span>
+      <span :class="{ strike: item.isDone }" class="item-label">{{ item.label }}</span>
     </div>
     <FontAwesomeIcon :icon="faTrash" class="delete-icon" @click.prevent="emit('delete')" />
   </div>
@@ -42,6 +42,10 @@ const emit = defineEmits(['delete', 'toggle']);
 
 .item-label {
   padding-left: 8px;
+}
+
+.strike {
+  text-decoration: line-through;
 }
 
 .delete-icon {
