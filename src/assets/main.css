@@ -1,3 +1,9 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.default-size-item {
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+}
