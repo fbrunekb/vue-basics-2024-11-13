@@ -1,16 +1,30 @@
 <script lang="ts" setup>
 import TodoListItem from '@/components/TodoListItem.vue';
+import { ref } from 'vue';
 
-function onAdd(event: Event) {
-  console.log(event.target);
+function onAdd() {
+  if (inputText.value) {
+    items.value = [
+      ...items.value,
+      {
+        inputId: 'item' + (items.value.length + 1),
+        label: inputText.value,
+      },
+    ];
+    inputText.value = '';
+  } else {
+    console.log('empty value not allowed');
+  }
 }
+
+const inputText = ref('');
 
 type ItemDetails = {
   inputId: string;
   label: string;
 };
 
-const items: ItemDetails[] = [
+const items = ref<ItemDetails[]>([
   {
     inputId: 'item1',
     label: 'first item',
@@ -23,13 +37,17 @@ const items: ItemDetails[] = [
     inputId: 'item3',
     label: 'third item',
   },
-];
+  {
+    inputId: 'item4',
+    label: 'fourth item',
+  },
+]);
 </script>
 
 <template>
   <div class="main-content">
     <div>
-      <input class="default-size-item add-input" type="text" />
+      <input v-model="inputText" class="default-size-item add-input" type="text" />
       <button class="default-size-item add-button" @click.prevent="onAdd">add</button>
     </div>
     <h3>Items:</h3>
